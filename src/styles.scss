@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+// import our main style files
+
+
+// @import './assets/css/vendor/stylesheets/_bootstrap';
+@import './assets/css/vendor/bootstrap.min';
+
+@import './assets/css/partials/_colors';
+
+
+@import './assets/css/partials/_fonts';
+@import './assets/css/partials/_img-ratio';
+@import './assets/css/partials/_buttons';
+@import './assets/css/partials/_forms';
+@import './assets/css/partials/_accoedion';
+@import './assets/css/partials/_slider';
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+@import './assets/css/partials/_global';
+
+
+
+a{
+  text-decoration: none;
+  color: inherit;
+  &:hover, &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}
