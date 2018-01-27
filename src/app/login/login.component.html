@@ -1,0 +1,71 @@
+<div class="overlay"></div>
+<div class="all">
+<div class="page-width">
+
+<div class="wrapper">
+  <div class="row">
+
+  <form action="" method="POST" class="login col-md-6  col-xs-12" novalidate  #loginForm="ngForm">
+    <h3 class="title">Log in To Your Shopo Store</h3>
+
+    <input id="mail" type="email" name="mail"
+    placeholder="Example me@gmail.com"
+    autocomplete="false"
+    required
+    #mail="ngModel"
+    [ngModel] ='user_Email'
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+
+    />
+    <i class="fa fa-user"></i>
+                <div *ngIf="mail.invalid && (mail.dirty || mail.touched)" class="alert alert-danger">
+
+                <div [hidden]="!mail.errors.required">
+                  Email Required
+                </div>
+                <div  [hidden]="!mail.errors.pattern">
+                Email is invalid
+            </div>
+            </div>
+
+    <input id="password" type="password" placeholder="Password" name="password"
+    #password="ngModel"
+    [ngModel] ='user_pass'
+    required />
+    <i class="fa fa-key"></i>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+    <div [hidden]="!password.errors.required">
+      Password Required
+   </div>
+</div>
+
+    <div class="links">
+
+    <a class="forgot-pass" href="#">Forgot your password?</a>
+    <div class="clear"></div>
+     <p class="sign-up">
+      <a routerLink="/sign-up">Sign Up</a> </p>
+    </div>
+
+
+<button class="btn" [disabled]="!loginForm.form.valid" type="submit">Login</button>
+ <!--<input  type="submit" class="btn btn-primary " value="Login">-->
+  </form>
+
+
+    <div class="google-play col-md-offset-2 col-md-4 col-xs-12">
+    <div class="image-play">
+    <img class="img-responsive" src="assets/images/logo.png" alt="google play" draggable="false">
+    </div>
+     <h4 class="description"><a href="#">Download now</a></h4>
+  </div>
+  </div>
+
+
+</div>
+
+</div>
+
+</div>
+

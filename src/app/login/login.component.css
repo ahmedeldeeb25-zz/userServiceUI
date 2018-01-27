@@ -1,0 +1,14 @@
+.google-play{
+  display: table-cell;
+}
+  @media(max-width:991px){
+
+.google-play{
+  margin-top:30px;
+
+}
+  }
+.description a{
+  color: #ffffff;
+
+}

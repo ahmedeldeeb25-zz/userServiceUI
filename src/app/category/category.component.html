@@ -32,7 +32,8 @@
                 <ul class="list-style">
                   <li *ngFor='let sub of sub_Category' class="ls-item">
 
-                    <a href="#">{{sub.name}}
+                    
+                    <a routerLink="category/{{sub.id}}/products" routerLinkActive="active">{{sub.name}}
                     </a>
 
                   </li>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Category} from '../models/Category';
- 
+import { Category } from '../models/Category';
+
 
 @Component({
   selector: 'app-product',
@@ -13,14 +13,14 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-     
+
   }
-     createRange(number){
-  var items: number[] = [];
-  for(var i = 1; i <= number; i++){
-     items.push(i);
+  createRange(number) {
+    var items: number[] = [];
+    for (var i = 1; i <= number; i++) {
+      items.push(i);
+    }
+    return items;
   }
-  return items;
-}
 
 }

@@ -1,0 +1,42 @@
+<div style="min-height:500px;">
+
+  <div *ngFor='let item of products' class="col-md-4 card">
+    <div class="card-image">
+      <div class="image-ratio">
+        <div class="ratio cart-item">
+
+        </div>
+        <div class="ratio-inner">
+
+          <img class="main-image" src="assets/images/products/img-1.jpg" alt="product" draggable="false">
+          <!--<img class="hover-effect" src="assets/images/products/img-1.jpg" alt="product" draggable="false">-->
+
+        </div>
+
+      </div>
+    </div>
+    <div class="card-content">
+      <h3 class="card-title">
+        <a href="#">{{ item.productName }}</a>
+      </h3>
+      <div class="rate">
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+
+      </div>
+      <p class="price">${{ item.price }}</p>
+      <div>
+        <a   routerLink="/product/{{item.id}}/details">
+          <img src="assets/images/car.jpg" class="market rounded float-left" alt="Seller">Carfour</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="products?.length ==0">
+      <h1 class="lead text center">No available Products Now </h1>
+    </div>
+</div>
