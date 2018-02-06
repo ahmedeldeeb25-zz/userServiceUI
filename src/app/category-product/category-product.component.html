@@ -1,6 +1,6 @@
-<div style="min-height:500px;">
+<div class="col-md-9 col-xs-12">
 
-  <div *ngFor='let item of products' class="col-md-4 card">
+  <div *ngFor='let item of products' class="col-md-3 card">
     <div class="card-image">
       <div class="image-ratio">
         <div class="ratio cart-item">
@@ -17,7 +17,7 @@
     </div>
     <div class="card-content">
       <h3 class="card-title">
-        <a href="#">{{ item.productName }}</a>
+        <a routerLink="/product/{{item.id}}/details">{{ item.productName }}</a>
       </h3>
       <div class="rate">
         <span class="fa fa-star-o"></span>
@@ -29,7 +29,7 @@
       </div>
       <p class="price">${{ item.price }}</p>
       <div>
-        <a   routerLink="/product/{{item.id}}/details">
+        <a href="#">
           <img src="assets/images/car.jpg" class="market rounded float-left" alt="Seller">Carfour</a>
       </div>
     </div>
@@ -37,6 +37,8 @@
   </div>
 
   <div *ngIf="products?.length ==0">
-      <h1 class="lead text center">No available Products Now </h1>
-    </div>
+    No Products available Now
+  </div>
+
+  
 </div>

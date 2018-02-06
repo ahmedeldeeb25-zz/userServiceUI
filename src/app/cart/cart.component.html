@@ -1,0 +1,105 @@
+<div class="col-md-9">
+  <!-- advertisement -->
+  <div class="panel panel-default">
+    <div class="panel-body">Advertisement area</div>
+  </div>
+  <div class="panel">
+    <div class="panel-body">
+      <h3 class="col-md-6">Your Cart ({{carts?.length}})</h3>
+      <h2 class="col-md-6 text-right">{{product.price}}$</h2>
+    </div>
+  </div>
+
+
+
+  <!-- every single product cart -->
+
+  <div *ngFor="let cart of carts; let i=index" class="panel" id="product-panel">
+
+    <div class="panel-body">
+
+      <div class="col-md-3">
+        <img src="/assets/images/products/img-1.jpg" />
+      </div>
+
+      <div class="col-md-9">
+        <div style="padding:0" class="col-md-12">
+          <h3 id="product-title" class="col-md-8">{{cart.product.productName}}</h3>
+          <h3 id="price" class="text-right col-md-4">${{cart.product.price * cart.quantity}}</h3>
+        </div>
+
+        <table>
+          <tr>
+            <td>
+              <strong>Style </strong>
+            </td>
+            <td>3466-12d</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Size </strong>
+            </td>
+            <td>large 35</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Seller </strong>
+            </td>
+            <td>{{cart.product.business.name}}</td>
+          </tr>
+          <tr>
+              <td>
+                <strong>Quantity </strong>
+              </td>
+              <td>{{cart.quantity}}</td>
+            </tr>
+          <tr>
+            <td>
+              <strong>Price </strong>
+            </td>
+            <td>{{cart.product.price}}</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+     
+        
+        
+     
+
+      <div class="panel-foot col-xs-12">
+
+        <div class="col-md-8 btns-group">
+          <button   type="button" class="btn btn-default col-md-3 col-xs-12">
+            <i class="fa fa-trash-o"></i> Remove</button>
+          <button (click)="checkout(cart)"  type="button" class="btn btn-primary col-md-3 col-xs-12">
+            <i class="fa fa-shopping-cart"></i> checkout</button>
+          <button (click)="edit(cart)" type="button" class="btn btn-success col-md-3 col-xs-12">
+            <i class="fa fa-refresh"></i> Edit</button>
+        </div>
+
+        <div class="col-md-4">
+            <div class=" qty  col-xs-12">  
+                               
+              <input [disabled]="!cart.disable"  id="qty-number" type="number" value="{{cart.quantity}}" class="float-right col-md-3 col-xs-8 ">
+               <div class="float-right plus-minus">
+                 <div class="plus" (click)="plus(cart)">
+                   <i class="fa fa-plus"></i>
+                 </div>
+       
+                 <div class="minus" (click)="minus(cart)">
+                   <i class="fa fa-minus"></i>
+                 </div>
+               </div>
+              
+             </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
       'Arabic',
       'English'
     ];
-    this.links = ['SignUp', 'Profile', 'Settings', 'SignIn'];
+    this.links = ['SignUp', 'Profile', 'Settings', 'SignIn',];
 
   }
 

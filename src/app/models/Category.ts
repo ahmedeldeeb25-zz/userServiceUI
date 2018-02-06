@@ -6,5 +6,5 @@ export class Category {
     public parentId: Number;
     public active: Number;
     public pic: String;
-    public submenu=[];
+    public subCategories:Category[]=[];
 }

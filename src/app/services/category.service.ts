@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class CategoryService {
 
-  private baseUrl: String = 'http://localhost:8080/rest/api/products';
+  private baseUrl: String = 'http://localhost:8090/rest/api/products';
 
   constructor(private _http: Http) {
 
@@ -20,20 +20,14 @@ export class CategoryService {
   getMainCategories(): Observable<Category[]> {
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
 
-    return this._http.get(this.baseUrl + '/categories/'+0)
+    return this._http.get(this.baseUrl + '/categories/')
       .map(data => {
         return data.json();
       }).catch((x: Response) => x.json());
 
   }
 
-  getSubCategories(parentId: Number): Observable<Category[]> {
-    return this._http.get(this.baseUrl + '/categories/'+parentId)
-    .map(data => {
-      return data.json();
-    }).catch((x: Response) => x.json());
-  }
-
+  
   // private getHeaders() {
   //   // I included these headers because otherwise FireFox
   //   // will request text/html instead of application/json

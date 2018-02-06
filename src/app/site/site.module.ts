@@ -4,22 +4,24 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
-
+import { Router } from '@angular/router/src/router';
 //Custom Components
-import { AppComponent } from '../app.component';
-import { HeaderComponent } from '../header/header.component';
-import { CategoryComponent } from '../category/category.component';
-import { MainSliderComponent } from '../main-slider/main-slider.component';
-import { OfferSliderComponent } from '../offer-slider/offer-slider.component';
-import { ProductComponent } from '../product/product.component';
-import { CollectionComponent } from '../collection/collection.component';
-import { FooterComponent } from '../footer/footer.component';
+// import { SiteComponent } from './site.component';
+// import { HeaderComponent } from '../header/header.component';
+// import { CategoryComponent } from '../category/category.component';
+// import { MainSliderComponent } from '../main-slider/main-slider.component';
+// import { OfferSliderComponent } from '../offer-slider/offer-slider.component';
+// import { ProductComponent } from '../product/product.component';
+// import { CollectionComponent } from '../collection/collection.component';
+// import { FooterComponent } from '../footer/footer.component';
+
 import { SingleProductComponent } from '../single-product/single-product.component';
 import { CategoryProductComponent } from '../category-product/category-product.component';
-import { Router } from '@angular/router/src/router';
-import { MainPageComponent } from '../main-page/main-page.component';
+
+ import { MainPageComponent } from '../main-page/main-page.component';
+import { SiteComponent } from './site.component';
  
-import { SiteComponent } from '../site/site.component';
+
 
 
 const appRoutes:Routes=[
@@ -40,30 +42,31 @@ const appRoutes:Routes=[
 ];
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    CategoryComponent,
-    MainSliderComponent,
-    OfferSliderComponent,
-    ProductComponent,
-    CollectionComponent,
-    FooterComponent,
+    
+    // HeaderComponent,
+    // CategoryComponent,
+    // MainSliderComponent,
+    // OfferSliderComponent,
+    // ProductComponent,
+    // CollectionComponent,
+    // FooterComponent,
     SingleProductComponent,
     CategoryProductComponent,
     MainPageComponent,
     
-    SiteComponent,
+    
      
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
-    //,{ enableTracing: true }
+   
+   
+    RouterModule.forRoot(appRoutes ,{ enableTracing: true })
   ],
   providers: [],
-  bootstrap: [SiteComponent]
+  bootstrap: []
 })
 export class SiteModule { }
 

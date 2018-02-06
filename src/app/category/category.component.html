@@ -15,7 +15,7 @@
             <li *ngFor='let main of Main_Category' class="accordion">
 
               <button type="button" class="accordion-btn toggle-active-parent">
-                <span (click)="getSubCat(main.id)" class="icon plus fa fa-plus"></span>
+                <span  class="icon plus fa fa-plus"></span>
                 <span class="icon minus fa fa-minus"></span>
 
               </button>
@@ -30,10 +30,8 @@
               
               <div class="accordion-body">
                 <ul class="list-style">
-                  <li *ngFor='let sub of sub_Category' class="ls-item">
-
-                    
-                    <a routerLink="category/{{sub.id}}/products" routerLinkActive="active">{{sub.name}}
+                  <li *ngFor='let sub of main.subCategories' class="ls-item">        
+                    <a routerLink="/category/{{sub.id}}/products" routerLinkActive="active">{{sub.name}}
                     </a>
 
                   </li>

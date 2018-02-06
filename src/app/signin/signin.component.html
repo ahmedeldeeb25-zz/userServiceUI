@@ -1,138 +1,116 @@
-<div class="overlay"></div>
+ 
 
-<div class="all">
-<div class="page-width">
+  <div class="container">
 
-<div class="wrapper">
-  <div class="row">
 
-  <form action="" method="POST" class="login col-md-6  col-xs-12" novalidate  #loginForm="ngForm">
-    <h3 class="title">Creat New Account</h3>
+    <div class="overlay"></div>
 
-  <input id="fname" type="text" name="fname"
-    placeholder="First Name"
-    autofocus autocomplete="false"
-    required
-    minlength="4"
-    #fname="ngModel"
-    [ngModel] ='user_fname'
-  />
-  <i class="fa fa-user"></i>
+    <div class="all">
+      <div class="page-width">
 
-  <div *ngIf="fname.invalid && fname.dirty " class="alert alert-danger">
+        <div class="wrapper">
+          <div class="row">
 
-    <div [hidden]="!fname.errors.required">
+            <form action="" method="POST" class="login col-md-6  col-xs-12" novalidate #loginForm="ngForm">
+              <h3 class="title">Creat New Account</h3>
+
+              <input id="fname" type="text" name="fname" placeholder="First Name" autofocus autocomplete="false" required minlength="4"
+                #fname="ngModel" [ngModel]='user_fname' />
+              <i class="fa fa-user"></i>
+
+              <div *ngIf="fname.invalid && fname.dirty " class="alert alert-danger">
+
+                <div [hidden]="!fname.errors.required">
                   First Name Required
-    </div>
-    <div  [hidden]="!fname.errors.minlength">
-      At Least 4 character
-    </div>
-  </div>
+                </div>
+                <div [hidden]="!fname.errors.minlength">
+                  At Least 4 character
+                </div>
+              </div>
 
-  <!--end First name-->
+              <!--end First name-->
 
-    <input id="lname" type="text" name="lname"
-    placeholder="Last Name"
-     autocomplete="false"
-    required
-    minlength="4"
-    #lname="ngModel"
-    [ngModel] ='user_lname'
-  />
-  <i class="fa fa-user"></i>
+              <input id="lname" type="text" name="lname" placeholder="Last Name" autocomplete="false" required minlength="4" #lname="ngModel"
+                [ngModel]='user_lname' />
+              <i class="fa fa-user"></i>
 
-  <div *ngIf="lname.invalid && lname.dirty " class="alert alert-danger">
+              <div *ngIf="lname.invalid && lname.dirty " class="alert alert-danger">
 
-    <div [hidden]="!lname.errors.required">
+                <div [hidden]="!lname.errors.required">
                   Last Name Required
-    </div>
-    <div  [hidden]="!lname.errors.minlength">
-      At Least 4 character
-    </div>
-  </div>
+                </div>
+                <div [hidden]="!lname.errors.minlength">
+                  At Least 4 character
+                </div>
+              </div>
 
-  <!--end Last name-->
+              <!--end Last name-->
 
-    <input id="mail" type="email" name="mail"
-    placeholder="Example me@gmail.com"
-    autofocus autocomplete="false"
-    required
-    #mail="ngModel"
-    [ngModel] ='user_Email'
-    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-
-    />
-    <i class="fa fa-user"></i>
-                <div *ngIf="mail.invalid && mail.dirty" class="alert alert-danger">
+              <input id="mail" type="email" name="mail" placeholder="Example me@gmail.com" autofocus autocomplete="false" required #mail="ngModel"
+                [ngModel]='user_Email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+              <i class="fa fa-user"></i>
+              <div *ngIf="mail.invalid && mail.dirty" class="alert alert-danger">
 
                 <div [hidden]="!mail.errors.required">
                   Email Required
                 </div>
-                <div  [hidden]="!mail.errors.pattern">
-                Email is invalid
-            </div>
-            </div>
-    <!--end Email-->
+                <div [hidden]="!mail.errors.pattern">
+                  Email is invalid
+                </div>
+              </div>
+              <!--end Email-->
 
-   <input id="phone"  type="number" name="phone"
-    placeholder="Phone Number"
-    autocomplete="false"
-    required
-    #phone="ngModel"
-    [ngModel] ='user_phone'
-    min="0"
-
-
-    />
-    <i class="fa fa-phone"></i>
-                <div *ngIf="phone.invalid && phone.dirty" class="alert alert-danger">
+              <input id="phone" type="number" name="phone" placeholder="Phone Number" autocomplete="false" required #phone="ngModel" [ngModel]='user_phone'
+                min="0" />
+              <i class="fa fa-phone"></i>
+              <div *ngIf="phone.invalid && phone.dirty" class="alert alert-danger">
 
                 <div [hidden]="!phone.errors.required">
                   Phone Required
                 </div>
-                <div  [hidden]="!phone.errors.maxlength">
-                phone Number Less Than 11 Number
-            </div>
-            </div>
-    <!--end phone-->
+                <div [hidden]="!phone.errors.maxlength">
+                  phone Number Less Than 11 Number
+                </div>
+              </div>
+              <!--end phone-->
 
-    <input id="password" type="password" placeholder="Password" name="password" #password="ngModel"
-    [ngModel] ='user_pass'
-    required />
-    <i class="fa fa-key"></i>
-    <div *ngIf="password.invalid && password.dirty" class="alert alert-danger">
+              <input id="password" type="password" placeholder="Password" name="password" #password="ngModel" [ngModel]='user_pass' required
+              />
+              <i class="fa fa-key"></i>
+              <div *ngIf="password.invalid && password.dirty" class="alert alert-danger">
 
-    <div [hidden]="!password.errors.required">
-      Password Required
-   </div>
-       <div [hidden]="!password.errors.pattern">
-      Password Required
-   </div>
-  </div>
-  <!--end password-->
+                <div [hidden]="!password.errors.required">
+                  Password Required
+                </div>
+                <div [hidden]="!password.errors.pattern">
+                  Password Required
+                </div>
+              </div>
+              <!--end password-->
 
-    <input id="confirmpassword" type="password" placeholder="Confirm Password" name="confirmpassword" #confirmpassword="ngModel"
-    required
-    validateEqual="password"
-    [ngModel] ='user_confirmpass'
-     />
-    <i class="fa fa-key"></i>
-    <div *ngIf="confirmpassword.invalid && confirmpassword.dirty "  class="alert alert-danger">
-      <div [hidden] = "confirmpassword.errors.valid">
-      Password did not match
+              <input id="confirmpassword" type="password" placeholder="Confirm Password" name="confirmpassword" #confirmpassword="ngModel"
+                required validateEqual="password" [ngModel]='user_confirmpass' />
+              <i class="fa fa-key"></i>
+              <div *ngIf="confirmpassword.invalid && confirmpassword.dirty " class="alert alert-danger">
+                <div [hidden]="confirmpassword.errors.valid">
+                  Password did not match
 
+                </div>
+
+              </div>
+              <!--end Confirm password-->
+
+
+              <button class="btn btn-submit" [disabled]="!loginForm.form.valid" type="submit">Join Now</button>
+
+              <div class="loginNow">Already have account ?
+                <a routerLink="/login">Login Now</a>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
+
 
   </div>
-  <!--end Confirm password-->
-
-
-<button class="btn btn-submit" [disabled]="!loginForm.form.valid" type="submit">Join Now</button>
-
-<div class="loginNow" >Already have account ? <a routerLink="/login">Login Now</a></div>
-  </form>
-  </div>
-  </div>
-  </div>
-</div>
-

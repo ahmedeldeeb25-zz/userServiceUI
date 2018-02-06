@@ -17,31 +17,7 @@ export class CategoryComponent implements OnInit, AfterViewChecked {
   n: Number = 0;
   constructor(private CategorySer: CategoryService) {
 
-    //     this.Main_Category = [
-    //     {
-    //       "Title":'clothes',
-    //       "submenu":['men Clothes','women Clothes','shoes'],
-    //         "status":'Sale',
-
-    //       "color":'status green'
-    //     },
-    //     {
-
-    //       "Title":'clothes',
-    //        "submenu":['men Clothes','women Clothes','shoes'],
-    //         "status":''
-    //     },
-    //     {
-    //       "Title":'clothes',
-    //       "submenu":['men Clothes','women Clothes','shoes'],
-    //         "status":'Sale',
-
-    //       "color":'status green'
-
-    //     },
-
-    //     ];
-
+ 
 
 
   }
@@ -70,20 +46,6 @@ export class CategoryComponent implements OnInit, AfterViewChecked {
 
 
   }
-
-  getSubCat(parentId: Number) {
-    this.sub_Category=[];
-    this.CategorySer.getSubCategories(parentId).
-      subscribe(data => {
-        console.log(data);
-        this.sub_Category = data;
-      }, error => console.log("Error :: " + error)
-      );
-
-    // this.sub_Category=[23,parentId];
-    console.log(this.sub_Category);
-  }
-
 
 
 }
