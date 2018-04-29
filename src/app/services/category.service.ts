@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response,Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Category } from '../models/Category';
 
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { RequestOptions } from '@angular/http/src/base_request_options';
 
 @Injectable()
 export class CategoryService {
@@ -18,9 +19,10 @@ export class CategoryService {
 
 
   getMainCategories(): Observable<Category[]> {
-    let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
 
-    return this._http.get(this.baseUrl + '/categories/')
+    let options = new RequestOptions({ headers: headers });
+    return this._http.get(this.baseUrl + '/categories/',options)
       .map(data => {
         return data.json();
       }).catch((x: Response) => x.json());

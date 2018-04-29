@@ -40,18 +40,7 @@
                     </div>
                  </div>
     
-                <div class="small-single image-ratio">
-                  <div class="ratio single-image">
-                  </div>
-                  <div class="ratio-inner">
-    
-                <a href="#" data-image="/assets/images/products/فرحه_عبحميد.jpg" data-zoom-image="/assets/images/products/فرحه_عبحميد.jpg">
-                      <img  id="img_02" class="img-responsive" src="/assets/images/products/فرحه_عبحميد.jpg" alt="small-photo" />
-    
-                       </a>
-    
-                </div>
-              </div>
+               
     
     
                 </div>
@@ -106,8 +95,8 @@
               </div>
               <h4 class="Avilability">AVAILABILITY: <span> {{product.quantity}} In Stock </span> </h4>
             </div>
-            <div class="product-option">
-              <div class="table-row">
+            <div class="product-option" *ngIf="checkLogin()">
+              <div class="table-row" >
     
               <input id="qty" type="number" name="quantity" value="{{finalresult}}" min="1" >
               <div class="plus-minus">
@@ -121,7 +110,7 @@
               </div>
               <div>
     
-              <button type="submit" class="btn submit">add to bag</button>
+              <button  (click)="addCart(product.id)" type="submit" class="btn submit">add to bag</button>
               </div>
               </div>
     

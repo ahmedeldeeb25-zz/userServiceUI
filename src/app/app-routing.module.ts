@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes ,RouterModule} from '@angular/router';
+import {AuthGuard} from './services/guards/oauth-guard.service';
 
 
 import { CollectionComponent } from './collection/collection.component';
@@ -16,11 +17,12 @@ const appRoutes: Routes = [
   {
     path: '',
     component: SiteComponent,
+ 
     children: [
-      { path: '', component: MainPageComponent },
+      { path: '', component: MainPageComponent},
       { path: 'category/:catId/products', component: CategoryProductComponent ,pathMatch: 'prefix'},
       { path: 'product/:productId/details', component: SingleProductComponent,pathMatch: 'prefix' },
-      {path: 'customers/:userId/carts',component:CartComponent}
+      {path: 'customers/:userId/carts',component:CartComponent,canActivate: [AuthGuard]}
     ]
   },
   //no layout routes

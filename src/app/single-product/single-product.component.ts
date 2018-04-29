@@ -5,7 +5,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 //Custom Services
 import { CommentService } from '../services/comment.service';
 import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 import { Product } from '../models/product';
+import { Cart } from '../models/Cart';
+import { UserService } from '../services/user.service';
+import { SharedService } from '../services/shared.service';
 
 declare var $;
 @Component({
@@ -17,6 +21,9 @@ declare var $;
 export class SingleProductComponent implements OnInit {
 
   product: Product;
+  cart = new Cart();
+
+
   single_item = {
     name: '',
     id: ''
@@ -27,7 +34,7 @@ export class SingleProductComponent implements OnInit {
     Email: '',
     comment: ''
   }
-  finalresult;
+  finalresult:number;
 
   comments: Comment[] = [];
 
@@ -36,9 +43,9 @@ export class SingleProductComponent implements OnInit {
 
   public createComment() {
 
-    if (this.user.comment == ""){
+    if (this.user.comment == "") {
       console.log("Please insert a comment");
-    }else {
+    } else {
       console.log(this.user.Email + " " + this.user.comment + " " + this.user.username);
       this.comment._comment = this.user.comment;
       this.comment.user_id = 1;
@@ -55,7 +62,9 @@ export class SingleProductComponent implements OnInit {
   }
 
   constructor(private route: ActivatedRoute,
-    private commentService: CommentService, private productService: ProductService) {
+    private commentService: CommentService,private _router:Router,
+     private cartService: CartService,private userService:UserService,
+      private productService: ProductService,private ss:SharedService) {
 
     this.route.params.subscribe(params => {
       this.comment._post_id = +params['productId']; // (+) converts string 'id' to a number
@@ -77,12 +86,6 @@ export class SingleProductComponent implements OnInit {
     }, error => console.log("Error :: " + error));
 
 
-
-
-
-
-
-
     // to zoom in single product
     this.single_item = {
       name: "preview",
@@ -98,6 +101,26 @@ export class SingleProductComponent implements OnInit {
     }
 
 
+  }
+
+ 
+  checkLogin(){
+    return this.userService.checkCredential();
+  }
+
+  //Add Product to the cart
+  addCart(productId: Number) {
+   this.ss.change(this.finalresult);
+    this.cart.createProduct(productId, this.finalresult);
+    this.cartService.addCart(this.cart)
+    .subscribe(data => {
+      console.log(data);
+      this.product.quantity -=this.finalresult;
+      this.finalresult=1;
+    }, error => {
+      if(error == 'Error: 401')
+        this._router.navigate(['/login']);
+    });
   }
 
   ngOnInit() {
@@ -134,7 +157,7 @@ export class SingleProductComponent implements OnInit {
 
   plus() {
 
-    if (!isNaN(this.finalresult)) {
+    if (!isNaN(this.finalresult) && this.finalresult < this.product.quantity) {
       this.finalresult++;
 
     }

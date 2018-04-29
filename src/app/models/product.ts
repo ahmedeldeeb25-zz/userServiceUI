@@ -7,7 +7,7 @@ export class Product {
     public price;
     public pic: String;
     public discount: Number;
-    public quantity: Number;
+    public quantity: number;
     public productName: String;
     public productDescription: String;
     public unitWeight: Number;

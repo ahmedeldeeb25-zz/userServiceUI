@@ -1,16 +1,27 @@
-import {Product} from './product';
+import { Product } from './product';
+
 export class Cart {
 
 
-    customersid: Number;
-    productid: Number;
-    product: Product;
+    id = {
+        customersid:Number,
+        productid: Number
+    }
+
+    product?: Product;
     quantity: Number;
-    disable:boolean;
+    disable: boolean;
 
 
-	constructor() {
-        this.disable=true;
-	}
-    
+    constructor() {
+        this.disable = true;
+    }
+
+    public createProduct(productId, quantity:Number) {
+        this.quantity=quantity;
+        this.id.productid = productId;
+        
+
+    }
+
 }

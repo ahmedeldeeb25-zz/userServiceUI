@@ -1,32 +1,44 @@
 import { any } from 'codelyzer/util/function';
 import { Component, OnInit } from '@angular/core';
 
+
+import { User } from '../models/User';
+import { UserService } from '../services/user.service';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  styleUrls: ['./signin.component.css'],
+  providers:[UserService]
 })
 export class SigninComponent implements OnInit {
-user_fname:string;
-user_lname:string;
-user_pass:any;
-user_confirmpass:any ;
-user_phone:number;
-user_Email:string;
 
-  constructor() {
-    this.user_fname='';
-    this.user_lname;
-    this.user_pass = '';
-    this.user_phone ;
-    this.user_confirmpass=''
-    this.user_Email = '';
+  user =new User();
+
+  constructor(private userService: UserService) {
 
 
   }
 
 
   ngOnInit() {
+  }
+
+
+  registerUser(valid: boolean) {
+
+    if (!valid) {
+      return;
+    }
+
+    this.userService.register(this.user).subscribe(() => {
+      console.log("added successfully");
+    }, (response: Response) => {
+      console.log(response.json());
+    }); 
+
+    console.log(this.user);
+
   }
 
 

@@ -6,6 +6,11 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { Router } from '@angular/router/src/router';
 
+//Custom Service
+import {AuthGuard} from './services/guards/oauth-guard.service';
+import {UserService} from './services/user.service';
+import { CartService } from './services/cart.service';
+import {SharedService} from './services/shared.service';
 
 //Custom Components
 import { AppComponent } from './app.component';
@@ -24,9 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CartComponent } from './cart/cart.component';
-
-//import { SiteComponent } from './site/site.component';
-// import { SigninComponent } from './signin/signin.component';
+ 
 
 
 
@@ -53,11 +56,10 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    // RouterModule.forRoot(appRoutes, { enableTracing: true }),
     AppRoutingModule
 
   ],
-  providers: [],
+  providers: [AuthGuard,UserService,CartService,SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

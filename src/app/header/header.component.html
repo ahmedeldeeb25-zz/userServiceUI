@@ -39,8 +39,9 @@
         </ul>
       </div>
     </div>
-    <div class="right-side pull-right">   <a href="#" class="signin-btn">SIGN IN</a>
-      <div class="cart"><a href="#" class="cart-icon"><span class="cart-count">0</span><span class="fa fa-shopping-cart"></span></a>
+    <div class="right-side pull-right"> 
+        <a *ngIf="!checkLogin()" href="#" routerLink='/login' class="signin-btn">SIGN IN</a>
+      <div class="cart"><a href="#" class="cart-icon"><span class="cart-count">{{value}}</span><span class="fa fa-shopping-cart"></span></a>
         <div class="cart-content">
           <div class="cart-items">
             <ul class="items-list">
@@ -79,10 +80,15 @@
       </div>
       <div class="list-holder other-links"><span class="icon fa fa-bars"></span>
         <ul class="list">
+          <div *ngIf="!checkLogin()">
                  <li class="list-item"><a routerLink='/signup'>SignUp</a> </li>
+          </div>
+          <div *ngIf="checkLogin()" >
             <li class="list-item"><a href="">Profile</a> </li>
 
             <li class="list-item"><a href="">Setting</a></li>
+            <li class="list-item"><a (click)="logout()" routerLink="/">Logout</a></li>
+            </div>
         </ul>
       </div>
     </div>
